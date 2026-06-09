@@ -12,10 +12,17 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .product-card:hover .secondary-image { opacity: 1; }
-        .aspect-3-4 { aspect-ratio: 3 / 4; }
+        .product-card:hover .secondary-image {
+            opacity: 1;
+        }
+        .aspect-3-4 {
+            aspect-ratio: 3 / 4;
+        }
+        /* Custom range slider styling */
         input[type='range']::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -25,7 +32,7 @@
             cursor: pointer;
             border-radius: 0;
         }
-        input[type='range'] { accent-color: #ffffff; }
+        input[type='range'] { accent-color: #fff; }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -126,394 +133,371 @@
     </script>
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-surface">
-
-<!-- ═══════════════════════════════════════════
-     TOP NAVIGATION BAR
-═══════════════════════════════════════════ -->
+<!-- Top Navigation Bar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md dark:bg-surface/80 border-b border-surface-container-highest dark:border-outline-variant h-20">
 <div class="flex justify-between items-center w-full px-margin-desktop h-full max-w-container-max mx-auto">
-  <a href="index.html" class="font-display-lg text-display-lg uppercase tracking-tighter text-primary dark:text-primary no-underline" style="text-decoration:none;">
-    ESCAPE CLOTHING
-  </a>
-  <div class="hidden md:flex items-center gap-8">
-    <a class="font-label-lg text-label-lg text-primary dark:text-primary border-b-2 border-primary pb-1" href="collection.html">NEW ARRIVALS</a>
-    <a class="font-label-lg text-label-lg text-outline dark:text-outline hover:text-primary transition-colors" href="collection.html">JERSEYS</a>
-    <a class="font-label-lg text-label-lg text-outline dark:text-outline hover:text-primary transition-colors" href="product.html">OVERSIZED TEES</a>
-    <a class="font-label-lg text-label-lg text-alert-drop dark:text-alert-drop hover:opacity-80 transition-colors font-bold" href="#">₹999 DROP</a>
-  </div>
-  <div class="flex items-center gap-6 text-primary">
-    <button class="hover:opacity-80 transition-opacity active:scale-95 duration-200"><span class="material-symbols-outlined">search</span></button>
-    <button class="hover:opacity-80 transition-opacity active:scale-95 duration-200"><span class="material-symbols-outlined">person</span></button>
-    <button class="hover:opacity-80 transition-opacity active:scale-95 duration-200 hidden md:block"><span class="material-symbols-outlined">favorite</span></button>
-    <button id="cart-btn" class="hover:opacity-80 transition-opacity active:scale-95 duration-200 relative" onclick="toggleCart()">
-      <span class="material-symbols-outlined">shopping_cart</span>
-      <span class="absolute -top-2 -right-2 bg-alert-drop text-[10px] w-4 h-4 flex items-center justify-center font-bold rounded-none">2</span>
-    </button>
-  </div>
+<a href="index.html" class="font-display-lg text-display-lg uppercase tracking-tighter text-primary dark:text-primary" style="text-decoration:none;">
+                ESCAPE CLOTHING
+            </a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-lg text-label-lg text-primary dark:text-primary border-b-2 border-primary pb-1" href="collection.html">NEW ARRIVALS</a>
+<a class="font-label-lg text-label-lg text-outline dark:text-outline hover:text-primary transition-colors" href="collection.html">JERSEYS</a>
+<a class="font-label-lg text-label-lg text-outline dark:text-outline hover:text-primary transition-colors" href="product.html">OVERSIZED TEES</a>
+<a class="font-label-lg text-label-lg text-alert-drop font-bold hover:opacity-80 transition-colors" href="#">₹999 DROP</a>
+</div>
+<div class="flex items-center gap-6 text-primary">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200"><span class="material-symbols-outlined">search</span></button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200"><span class="material-symbols-outlined">person</span></button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200 hidden md:block"><span class="material-symbols-outlined">favorite</span></button>
+<button id="cart-toggle-btn" class="hover:opacity-80 transition-opacity active:scale-95 duration-200 relative" onclick="toggleCart()">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-alert-drop text-[10px] w-4 h-4 flex items-center justify-center font-bold">2</span>
+</button>
+</div>
 </div>
 </nav>
-
 <main class="pt-20">
-
-  <!-- ═══════════════════════════════════════════
-       COLLECTION HERO BANNER
-  ═══════════════════════════════════════════ -->
-  <section class="relative h-[409px] min-h-[300px] flex items-center overflow-hidden border-b border-surface-accent">
-    <div class="absolute inset-0 z-0">
-      <img class="w-full h-full object-cover opacity-50 grayscale"
-           src="https://images.unsplash.com/photo-1529139574466-a303027614b3?w=1600&q=80"
-           alt="New Arrivals Collection Hero" />
-      <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
-    </div>
-    <div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
-      <div class="flex flex-col gap-2">
-        <span class="font-label-lg text-label-lg tracking-[0.2em] text-outline uppercase">Seasonal Drop 04</span>
-        <h1 class="font-display-lg text-display-lg text-primary uppercase leading-none">NEW ARRIVALS</h1>
-        <p class="font-body-md text-ink-muted mt-2">EXPLORE 42 EXCLUSIVE PIECES ENGINEERED FOR THE MODERN STREETSCAPE.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       PRODUCT INTERFACE SECTION
-  ═══════════════════════════════════════════ -->
-  <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-12 flex flex-col md:flex-row gap-gutter">
-
-    <!-- ── SIDEBAR FILTERS ── -->
-    <aside class="w-full md:w-64 flex-shrink-0">
-      <div class="sticky top-32 flex flex-col gap-10">
-
-        <!-- Size Filter -->
-        <div class="flex flex-col gap-4">
-          <h3 class="font-label-lg text-label-lg text-primary border-b border-surface-accent pb-2 uppercase tracking-wider">Size</h3>
-          <div class="grid grid-cols-3 gap-2">
-            <button class="border border-outline-variant py-2 font-label-lg text-label-lg hover:border-primary transition-colors text-primary" onclick="toggleSize(this)">XS</button>
-            <button class="border border-primary bg-primary text-surface py-2 font-label-lg text-label-lg" onclick="toggleSize(this)">S</button>
-            <button class="border border-outline-variant py-2 font-label-lg text-label-lg hover:border-primary transition-colors text-primary" onclick="toggleSize(this)">M</button>
-            <button class="border border-outline-variant py-2 font-label-lg text-label-lg hover:border-primary transition-colors text-primary" onclick="toggleSize(this)">L</button>
-            <button class="border border-outline-variant py-2 font-label-lg text-label-lg hover:border-primary transition-colors text-primary" onclick="toggleSize(this)">XL</button>
-            <button class="border border-outline-variant py-2 font-label-lg text-label-lg hover:border-primary transition-colors text-primary" onclick="toggleSize(this)">XXL</button>
-          </div>
-        </div>
-
-        <!-- Price Range -->
-        <div class="flex flex-col gap-4">
-          <h3 class="font-label-lg text-label-lg text-primary border-b border-surface-accent pb-2 uppercase tracking-wider">Price Range</h3>
-          <div class="flex flex-col gap-2">
-            <input id="price-range" class="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer" max="4999" min="999" type="range" value="2999" oninput="updatePrice(this.value)"/>
-            <div class="flex justify-between font-label-lg text-outline text-[12px]">
-              <span>₹999</span>
-              <span id="price-display" class="text-primary font-bold">₹2,999</span>
-              <span>₹4,999</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sort By -->
-        <div class="flex flex-col gap-4">
-          <h3 class="font-label-lg text-label-lg text-primary border-b border-surface-accent pb-2 uppercase tracking-wider">Sort By</h3>
-          <select class="bg-surface border border-outline-variant text-on-surface font-label-lg p-2 focus:ring-0 focus:border-primary outline-none appearance-none text-sm">
-            <option>NEWEST FIRST</option>
-            <option>PRICE: LOW TO HIGH</option>
-            <option>PRICE: HIGH TO LOW</option>
-            <option>MOST POPULAR</option>
-          </select>
-        </div>
-
-        <button class="w-full bg-surface-container-highest text-primary font-label-lg py-4 hover:bg-surface-accent transition-colors uppercase tracking-widest text-[12px]">Clear All Filters</button>
-      </div>
-    </aside>
-
-    <!-- ── MAIN PRODUCT GRID ── -->
-    <div class="flex-grow flex flex-col gap-8">
-
-      <!-- Active Filters & Count -->
-      <div class="flex flex-wrap items-center justify-between gap-4">
-        <div class="flex flex-wrap items-center gap-2">
-          <div class="flex items-center gap-2 bg-surface-accent border border-outline-variant px-3 py-1 text-[11px] font-label-lg text-primary uppercase">
-            Size: S <button class="flex items-center ml-2"><span class="material-symbols-outlined" style="font-size:14px;">close</span></button>
-          </div>
-          <div class="flex items-center gap-2 bg-surface-accent border border-outline-variant px-3 py-1 text-[11px] font-label-lg text-primary uppercase">
-            Under ₹2,999 <button class="flex items-center ml-2"><span class="material-symbols-outlined" style="font-size:14px;">close</span></button>
-          </div>
-        </div>
-        <span class="font-label-lg text-[12px] text-outline uppercase tracking-widest">Showing 8 of 42 items</span>
-      </div>
-
-      <!-- Product Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-12">
-
-        <!-- Card 1 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=600&q=80" alt="Obsidian Oversized Tee"/>
-            <img class="secondary-image absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                 src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" alt="Obsidian Oversized Tee - Alt"/>
-            <div class="absolute top-4 left-4 flex flex-col gap-2">
-              <span class="bg-primary text-surface px-2 py-1 text-[10px] font-bold uppercase">New</span>
-            </div>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">OBSIDIAN OVERSIZED TEE</h3>
-            <div class="flex justify-between items-baseline">
-              <span class="font-price-display text-price-display text-primary">₹2,499</span>
-              <span class="text-outline text-[12px] uppercase">Cotton 300GSM</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 2 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1571019613576-2b22c76fd955?w=600&q=80" alt="Vintage Boxing Jersey"/>
-            <img class="secondary-image absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
-                 src="https://images.unsplash.com/photo-1504963197557-c19e0a671e27?w=600&q=80" alt="Vintage Boxing Jersey - Alt"/>
-            <div class="absolute top-4 left-4">
-              <span class="bg-alert-drop text-primary px-2 py-1 text-[10px] font-bold uppercase">🔥 Hot</span>
-            </div>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">VINTAGE BOXING JERSEY</h3>
-            <div class="flex justify-between items-baseline">
-              <span class="font-price-display text-price-display text-primary">₹2,999</span>
-              <span class="text-outline text-[12px] uppercase">Limited Edition</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 3 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80" alt="Metal Wash Drop Tee"/>
-            <div class="absolute top-4 left-4">
-              <span class="bg-alert-drop text-primary px-2 py-1 text-[10px] font-bold uppercase">Sale</span>
-            </div>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">METAL WASH DROP TEE</h3>
-            <div class="flex justify-between items-baseline">
-              <div class="flex gap-2 items-baseline">
-                <span class="font-price-display text-price-display text-alert-drop">₹1,499</span>
-                <span class="text-[12px] text-outline line-through">₹2,299</span>
-              </div>
-              <span class="text-outline text-[12px] uppercase">30% OFF</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 4 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80" alt="Tech Embroidery Jersey"/>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">TECH EMBROIDERY JERSEY</h3>
-            <div class="flex justify-between items-baseline">
-              <span class="font-price-display text-price-display text-primary">₹3,499</span>
-              <span class="text-outline text-[12px] uppercase">Heavy Weight</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 5 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1598032895397-b9472444bf93?w=600&q=80" alt="Urban Logo Tee"/>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">URBAN LOGO TEE</h3>
-            <div class="flex justify-between items-baseline">
-              <span class="font-price-display text-price-display text-primary">₹1,999</span>
-              <span class="text-outline text-[12px] uppercase">Core Essentials</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 6 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80" alt="Stealth Mesh Jersey"/>
-            <div class="absolute top-4 left-4">
-              <span class="bg-primary text-surface px-2 py-1 text-[10px] font-bold uppercase">New</span>
-            </div>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">STEALTH MESH JERSEY</h3>
-            <div class="flex justify-between items-baseline">
-              <span class="font-price-display text-price-display text-primary">₹2,799</span>
-              <span class="text-outline text-[12px] uppercase">Performance</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 7 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Blanc Oversized Tee"/>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">BLANC OVERSIZED TEE</h3>
-            <div class="flex justify-between items-baseline">
-              <span class="font-price-display text-price-display text-primary">₹2,199</span>
-              <span class="text-outline text-[12px] uppercase">Cotton Blend</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Card 8 -->
-        <a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer no-underline" style="text-decoration:none;">
-          <div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
-            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Street Legacy Jersey"/>
-            <div class="absolute top-4 left-4">
-              <span class="bg-alert-drop text-primary px-2 py-1 text-[10px] font-bold uppercase">🔥 Hot</span>
-            </div>
-            <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
-              <button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <h3 class="font-label-lg text-primary uppercase truncate">STREET LEGACY JERSEY</h3>
-            <div class="flex justify-between items-baseline">
-              <span class="font-price-display text-price-display text-primary">₹3,299</span>
-              <span class="text-outline text-[12px] uppercase">Exclusive Drop</span>
-            </div>
-          </div>
-        </a>
-
-      </div><!-- /grid -->
-
-      <!-- Load More / Spinner -->
-      <div id="load-more-zone" class="py-20 flex flex-col items-center gap-6">
-        <div class="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-        <p class="font-label-lg text-outline uppercase tracking-[0.3em] text-[12px]">Loading more architecture for your wardrobe...</p>
-      </div>
-
-    </div><!-- /main content -->
-  </section>
-
+<!-- Collection Hero Banner -->
+<section class="relative h-[409px] min-h-[300px] flex items-center overflow-hidden border-b border-surface-accent">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-50 grayscale" alt="New Arrivals Hero" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYzYk4kMnAVY8byCwrwxCMwmm0R1ZaM-BIxy8ck-gwHKKrKxeEh98XL3ck6TYud4LbEj7IUkFqCZ2vnhFJFUEGd9x6-GYqH4YHwmkkBVZeogmHv9FZsnPtxsR5MZjywGoV_Q8txFwYeydESg8NDLfG6C03vwD6JLWgBMsarWpegVv3trQz4ePD9eiFHKZ_82vnH6D4j-U8y5baYcunkwehUAddEYyuoY_PiPjOCHQelknA0y0lriTshspz4yOkSwgMsP7w4GkfaXc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="flex flex-col gap-2">
+<span class="font-label-lg text-label-lg tracking-[0.2em] text-outline uppercase">Seasonal Drop 04</span>
+<h1 class="font-display-lg text-display-lg text-primary uppercase leading-none">NEW ARRIVALS</h1>
+<p class="font-body-md text-ink-muted mt-2">EXPLORE 42 EXCLUSIVE PIECES ENGINEERED FOR THE MODERN STREETSCAPE.</p>
+</div>
+</div>
+</section>
+<!-- Product Interface Section -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-12 flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-64 flex-shrink-0">
+<div class="sticky top-32 flex flex-col gap-10">
+<!-- Filter Group: Size -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-lg text-label-lg text-primary border-b border-surface-accent pb-2 uppercase tracking-wider">Size</h3>
+<div class="grid grid-cols-3 gap-2">
+<button class="border border-outline-variant py-2 font-label-lg text-label-lg text-primary hover:border-primary transition-colors" onclick="toggleSize(this)">XS</button>
+<button class="border border-primary bg-primary text-surface py-2 font-label-lg text-label-lg" onclick="toggleSize(this)">S</button>
+<button class="border border-outline-variant py-2 font-label-lg text-label-lg text-primary hover:border-primary transition-colors" onclick="toggleSize(this)">M</button>
+<button class="border border-outline-variant py-2 font-label-lg text-label-lg text-primary hover:border-primary transition-colors" onclick="toggleSize(this)">L</button>
+<button class="border border-outline-variant py-2 font-label-lg text-label-lg text-primary hover:border-primary transition-colors" onclick="toggleSize(this)">XL</button>
+<button class="border border-outline-variant py-2 font-label-lg text-label-lg text-primary hover:border-primary transition-colors" onclick="toggleSize(this)">XXL</button>
+</div>
+</div>
+<!-- Filter Group: Price -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-lg text-label-lg text-primary border-b border-surface-accent pb-2 uppercase tracking-wider">Price Range</h3>
+<div class="flex flex-col gap-2">
+<input class="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer" max="4999" min="999" type="range" value="2999" oninput="updatePrice(this.value)"/>
+<div class="flex justify-between font-label-lg text-outline text-[12px]">
+<span>₹999</span>
+<span id="price-display" class="text-primary font-bold">₹2,999</span>
+<span>₹4,999</span>
+</div>
+</div>
+</div>
+<!-- Filter Group: Sort -->
+<div class="flex flex-col gap-4">
+<h3 class="font-label-lg text-label-lg text-primary border-b border-surface-accent pb-2 uppercase tracking-wider">Sort By</h3>
+<select class="bg-surface border border-outline-variant text-on-surface font-label-lg p-2 focus:ring-0 focus:border-primary outline-none appearance-none">
+<option>NEWEST FIRST</option>
+<option>PRICE: LOW TO HIGH</option>
+<option>PRICE: HIGH TO LOW</option>
+<option>MOST POPULAR</option>
+</select>
+</div>
+<div class="mt-4">
+<button class="w-full bg-surface-container-highest text-primary font-label-lg py-4 hover:bg-surface-accent transition-colors uppercase tracking-widest text-[12px]">Clear All Filters</button>
+</div>
+</div>
+</aside>
+<!-- Main Content: Product Grid -->
+<div class="flex-grow flex flex-col gap-8">
+<!-- Active Filters & Controls -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-2 bg-surface-accent border border-outline-variant px-3 py-1 text-[11px] font-label-lg text-primary uppercase">
+                            Size: S <button class="flex items-center ml-2"><span class="material-symbols-outlined" style="font-size:14px;">close</span></button>
+</div>
+<div class="flex items-center gap-2 bg-surface-accent border border-outline-variant px-3 py-1 text-[11px] font-label-lg text-primary uppercase">
+                            Under ₹2999 <button class="flex items-center ml-2"><span class="material-symbols-outlined" style="font-size:14px;">close</span></button>
+</div>
+</div>
+<span class="font-label-lg text-[12px] text-outline uppercase tracking-widest">Showing 12 of 42 items</span>
+</div>
+<!-- Bento-ish Product Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-12">
+<!-- Product Card 1 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Obsidian Oversized Tee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQh0Gf63jmAGY8l0S3TjiAyj3q3srTkOtk8-N33ECVT0Z7C90fLBDdSCoyZ8zCl_knvMuF8k79UMQhocQsYZpQFefQL9kfrk4ajTIvgnbWv55NyfJPSKE7vLtzpaWNLG2jL5Eq3hmY04jDNnAT34gL4uS3u6PjRCfMZmirTOCEtFcbeNVZnvWsPwWKYS8aFVrCDytbloMnDBNxQYauaPybZmbPqnYp5-lNJo09oU_vFU6ncepMPUESYu0YuAIejKlQMEQldfdLv3A"/>
+<img class="secondary-image absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500" alt="Obsidian Oversized Tee Alt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeVqSfJjfdd7cNkpQDLUIdRr8ydVLSdDQxJ2AH6__hdRupBha4DNqmY62jQ4A9ILf_WpnejHmQYwKoROniRJx_dMK7b05fmjJVAi9xJRiDQDAS0uEmLOj0kqHduX81IPrVio6DtDTe4jZckGGdkiIYOBf_x_a6a0lHArl2ChIrTTPHI7AglOSd73y9ebxka5s0R_lGsiNvM_IN2aW0raafxbfhH3ZUEIfA3nJsFyCUpgZ5VpWuil808oJu9waik1VhlZz6IuulhfE"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-primary text-surface px-2 py-1 text-[10px] font-bold uppercase">New</span>
+</div>
+<!-- Quick Add Overlay -->
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">OBSIDIAN OVERSIZED TEE</h3>
+<div class="flex justify-between items-baseline">
+<span class="font-price-display text-price-display text-primary">₹2,499</span>
+<span class="text-outline text-[12px] uppercase">Cotton 300GSM</span>
+</div>
+</div>
+</a>
+<!-- Product Card 2 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Vintage Boxing Jersey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHbjJpD-XETJjgnbEhrlaqjRt5LF04pZuDPcnaMVjhCmIDHqsICT9Ld9VIuWzhZa3AZDUFYLtbOXaTxW4c5pgEQ1F4J_twJHhXNjIKi1kcxCz14xJ93aiq3yuKptuRgoArGWTOPJ93whQzbl2wBfKv0bKIGXNNH7njRqhCqjINfagrsA0k08A2dwhv3IXHKIPzzWYwKv0UoCdohj-fXO5ZNLyEq2E802ATz-kiZY2d-Pn3c0eWxnZPKJ6wi1q7_xkIbWEK-4ffosw"/>
+<img class="secondary-image absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500" alt="Vintage Boxing Jersey Alt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeWjMwVGm_-RU5FhwaXsHyzYbbkw-HpnJsZ7LneHxialsumAJMk9z9ILgc3fb3LwrH7v5IJ3K1EvYHrxne2NDy_VlMBlKKL8dOd8ry5c-AALAiX2mTtwADyKjL9WfuX5DzXzjdylcDOYcJvT5BFmm_OC1gmxMGUFU0BCYgKiFNYBLZ0AH3vlEKKFKOCK8uKm61TVVRv27H2RGCsgjuTRbS62gC4kd9PRwjUDKE3awZsCzpKWvOioeh6sfIsxFsTiKsfrNQb6u28BM"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-alert-drop text-primary px-2 py-1 text-[10px] font-bold uppercase">🔥 Hot</span>
+</div>
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">VINTAGE BOXING JERSEY</h3>
+<div class="flex justify-between items-baseline">
+<span class="font-price-display text-price-display text-primary">₹2,999</span>
+<span class="text-outline text-[12px] uppercase">Limited Edition</span>
+</div>
+</div>
+</a>
+<!-- Product Card 3 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Metal Wash Drop Tee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-H6D715SOptXnCszeEkjTgW-m7VAyUAea0CzIgM68WNectvsIa4I6M6qKWNmZzzf-oCg0ypioJDjNRgOof2hHOs966g0GiQX8sqMgIx4pukNFCYTRDuZzgINM57nJI8qTKO9ajm1qD1XyOtR9nEx-mTrEO8d6X-2NLhD_Z1mU87JgwCAqYC57ZNLcdJutneI_PBIkuIuj83slRyTE5e8pMqG8uJCZGtV4fjIN0XB8rKMPunt1u7KKbnsj8LlY9jOjWhA41NKE0IQ"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-alert-drop text-primary px-2 py-1 text-[10px] font-bold uppercase">Sale</span>
+</div>
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">METAL WASH DROP TEE</h3>
+<div class="flex justify-between items-baseline">
+<div class="flex gap-2 items-baseline">
+<span class="font-price-display text-price-display text-alert-drop">₹1,499</span>
+<span class="text-[12px] text-outline line-through">₹2,299</span>
+</div>
+<span class="text-outline text-[12px] uppercase">30% OFF</span>
+</div>
+</div>
+</a>
+<!-- Product Card 4 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Tech Embroidery Jersey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs3N7irjhsEkJWwX98Nsf38Ke_1MnbxQ9QcXANInGekS2qehaf7t9dSFR0CE2u5kvQmKZj8Q3bWnx6ABZD5CYYX3kGdnwmRFck6IKgBzOg5oQ4DnYY__g3ugdq3vYNMkG0NjQCtZMbJXjRz5n94IoJvMq4QjzPrSOD3lz8b52B0ydesKhay5vv3GSXnbEhUd6FeQYHarab5ZiXPk8fSryPwhShPYxbwMbSUdjfosJ5uqOTnWlh32l__taZ9crzC4GS7ERtjPg6kLs"/>
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">TECH EMBROIDERY JERSEY</h3>
+<div class="flex justify-between items-baseline">
+<span class="font-price-display text-price-display text-primary">₹3,499</span>
+<span class="text-outline text-[12px] uppercase">Heavy Weight</span>
+</div>
+</div>
+</a>
+<!-- Product Card 5 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Urban Logo Tee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfSNX6VE1rGi8OkJO8USFeeejR_U6UDpps04cK3sPZGRfOLxwEcWBrEIsEql6pwm30-T2JjB_EMPNYZVdH62pF1NZIWj07Cu47RBO8sEnkmQrJz3pDWDC_4ss28bOSO3AnHSnIy3hNbIJ6Fdw2VhAkwTsXKz5w7srMttQAN9NuHrKldLjFVZLtvGfU34lEFvnRwNeLejV6U4w9CHXJkEj2QNGbcn5m4wfTPgOuX9YmWKT1ytoUsLNjHz-5TR6K5NnxCudbFL2Ivas"/>
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">URBAN LOGO TEE</h3>
+<div class="flex justify-between items-baseline">
+<span class="font-price-display text-price-display text-primary">₹1,999</span>
+<span class="text-outline text-[12px] uppercase">Core Essentials</span>
+</div>
+</div>
+</a>
+<!-- Product Card 6 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Stealth Mesh Jersey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvjSURXGH3XsWkkusH0swoRNSHOc-oMMdEpTuW1y5t8JDuvVswOf6q1WjUm_gdQaLjWodBWA6Xa9qs3tS_RqvkbE5H6biZjCrDiXStUVRcvqpm5vvPh8fhYSHIoto5LFOr8B7S3yCpetgq8WTWScwtBzf2CMgG0m7iXm8saRjnctvP_nIelBjfiKwHFKTrfUPpdE4KtALa1gLmSxRalGDMSIn0lU7z3oqXFhI9JroAhz5PQlZZEp6jl95zycbPBL_xJMkRh_wuZ3U"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-surface px-2 py-1 text-[10px] font-bold uppercase">New</span>
+</div>
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">STEALTH MESH JERSEY</h3>
+<div class="flex justify-between items-baseline">
+<span class="font-price-display text-price-display text-primary">₹2,799</span>
+<span class="text-outline text-[12px] uppercase">Performance</span>
+</div>
+</div>
+</a>
+<!-- Product Card 7 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Blanc Oversized Tee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmc0c-IooObokdS4EHEUM6a3Zgt0QPuSDn0eryH55Kse38iEK_1b9XIEu88avD_xWxu7S0zZ0GPSVPNPxZxlDZOWojw2qLdleVKEHk1jhuqbATJZBZzjYC-4Lzcp3stkOUUjFRhiOoyivcfKuMdZzT-Ym98P--cIZzfGrj94vGTYjTQyG3TK96y6hQfeFdBtW5esFPEnejEeO6C66_u9ALWhN7QLVHGZXrDtrwAZvcnHwG2vVaPf7YdCL3k1Q2wFsIB5uiU9pVNAA"/>
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">BLANC OVERSIZED TEE</h3>
+<div class="flex justify-between items-baseline">
+<span class="font-price-display text-price-display text-primary">₹2,199</span>
+<span class="text-outline text-[12px] uppercase">Cotton Blend</span>
+</div>
+</div>
+</a>
+<!-- Product Card 8 -->
+<a href="product.html" class="product-card group flex flex-col gap-4 cursor-pointer" style="text-decoration:none;">
+<div class="relative aspect-3-4 overflow-hidden bg-surface-elevated">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Street Legacy Jersey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAccRvMy7Q_Q7nu8duDA-zNNY9TS15e7tXetexLig3xsKHM-C_XSixEgVA78uCVkSuDWjooKQfjII5soZjG_aR1YxrPNKb3lW9VdXCyCR9-CFyJBM7C71KfmsXY5rvW1WX3lpn1FIwcxyyv3BJp_VrKGgVT5ou8whF2HUSCBhwVQl_HfSgIhCC95RRoWiivPIxK-p4Y_7CQXoh_8paQ-B8dSLIuiAvXbrybJATfI36TPRVTx4xjadkhbiZp7hSIp-V2IylprrNdUNg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-alert-drop text-primary px-2 py-1 text-[10px] font-bold uppercase">🔥 Hot</span>
+</div>
+<div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-surface/90 backdrop-blur-sm p-4">
+<button class="w-full bg-primary text-surface font-label-lg py-3 text-[12px] uppercase tracking-widest hover:opacity-90 transition-opacity">Quick Add</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-label-lg text-primary uppercase truncate">STREET LEGACY JERSEY</h3>
+<div class="flex justify-between items-baseline">
+<span class="font-price-display text-price-display text-primary">₹3,299</span>
+<span class="text-outline text-[12px] uppercase">Exclusive Drop</span>
+</div>
+</div>
+</a>
+</div>
+<!-- Infinite Scroll Loader -->
+<div id="load-more-zone" class="py-20 flex flex-col items-center gap-6">
+<div class="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+<p class="font-label-lg text-outline uppercase tracking-[0.3em] text-[12px]">Loading more architecture for your wardrobe...</p>
+</div>
+</div>
+</section>
 </main>
 
 <!-- ═══════════════════════════════════════════
      CART SIDE PANEL
 ═══════════════════════════════════════════ -->
 <div class="fixed right-0 top-0 h-full w-full md:w-96 z-[60] bg-surface dark:bg-surface border-l border-outline-variant shadow-2xl translate-x-full transition-transform duration-500 ease-in-out" id="side-nav">
-  <div class="flex flex-col h-full p-6">
-    <div class="flex justify-between items-start mb-8">
-      <div>
-        <h2 class="font-headline-md text-headline-md text-primary uppercase">CART</h2>
-        <p class="text-[10px] text-outline font-label-lg tracking-widest uppercase">FREE SHIPPING ON ORDERS ABOVE ₹999</p>
-      </div>
-      <button class="text-primary hover:opacity-50 transition-opacity" onclick="toggleCart()">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-    </div>
-    <div class="flex-grow flex flex-col gap-4 overflow-y-auto hide-scrollbar">
-      <div class="flex flex-col gap-6">
-        <div class="flex gap-4 items-center">
-          <div class="w-20 h-24 bg-surface-accent flex-shrink-0">
-            <img class="w-full h-full object-cover opacity-80"
-                 src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=200&q=80" alt="Cart item"/>
-          </div>
-          <div class="flex flex-col gap-1 flex-grow">
-            <div class="flex justify-between">
-              <h4 class="font-label-lg text-[12px] text-primary uppercase">OBSIDIAN OVERSIZED TEE</h4>
-              <span class="text-primary text-[12px]">₹2,499</span>
-            </div>
-            <span class="text-[10px] text-outline uppercase">Size: S</span>
-            <div class="flex items-center gap-4 mt-2">
-              <div class="flex items-center border border-outline-variant">
-                <button class="px-2 py-1 text-primary hover:bg-surface-accent">-</button>
-                <span class="px-3 py-1 text-[12px] font-bold text-primary">1</span>
-                <button class="px-2 py-1 text-primary hover:bg-surface-accent">+</button>
-              </div>
-              <button class="text-[10px] text-outline underline uppercase tracking-tighter">Remove</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mt-auto pt-6 border-t border-surface-accent">
-      <div class="flex justify-between items-center mb-6">
-        <span class="font-label-lg text-outline uppercase tracking-widest">Subtotal</span>
-        <span class="font-price-display text-price-display text-primary">₹2,499</span>
-      </div>
-      <button class="w-full bg-primary text-surface font-headline-md text-headline-md py-4 transition-transform active:scale-95 duration-200 uppercase">
-        CHECKOUT NOW
-      </button>
-    </div>
-  </div>
+<div class="flex flex-col h-full p-6">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary uppercase">CART</h2>
+<p class="text-[10px] text-outline font-label-lg tracking-widest uppercase">FREE SHIPPING ON ORDERS ABOVE ₹999</p>
+</div>
+<button class="text-primary hover:opacity-50 transition-opacity" onclick="toggleCart()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-grow flex flex-col gap-4 overflow-y-auto hide-scrollbar">
+<!-- Tab items -->
+<div class="flex flex-col gap-2">
+<div class="bg-primary text-on-primary p-4 flex items-center gap-4 font-bold">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-lg uppercase">MY CART</span>
+</div>
+<div class="text-on-surface hover:bg-surface-container-high p-4 flex items-center gap-4 transition-colors">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-lg uppercase">SHIPPING PROGRESS</span>
+</div>
+<div class="text-on-surface hover:bg-surface-container-high p-4 flex items-center gap-4 transition-colors">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-lg uppercase">CHECKOUT</span>
+</div>
+<div class="text-on-surface hover:bg-surface-container-high p-4 flex items-center gap-4 cursor-pointer transition-colors" onclick="toggleCart()">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-lg uppercase">CONTINUE SHOPPING</span>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px bg-surface-accent w-full my-4"></div>
+<!-- Cart Items -->
+<div class="flex flex-col gap-6">
+<div class="flex gap-4 items-center">
+<div class="w-20 h-24 bg-surface-accent flex-shrink-0">
+<img class="w-full h-full object-cover opacity-80" alt="Cart item thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuFaVfbaACuj2hAMni8XFfVrf_Bi39AbFSsF2PW5lVqsc0Dhg7qHft9P9m9Kf0bms0FrAmVgmtjDQNvYSvgcOjKAXOea-EJrkEv0sh5YYLekiNvAhgZJghvFjD0Y6kKDTs6QU3gDhZ6m4w81m6o4i0RQFUwQIXTGFPUVHKqdFdAuUVq9FSShJ4GHPWOxeY0bhHRgFJa3m8SAa5_A0z9AeV9b_GbpWG8_bxur2rFtD7jf4mENRoo0h9mamcQkjbLxAECo0U3XEBiMs"/>
+</div>
+<div class="flex flex-col gap-1 flex-grow">
+<div class="flex justify-between">
+<h4 class="font-label-lg text-[12px] text-primary uppercase">OBSIDIAN OVERSIZED TEE</h4>
+<span class="text-primary text-[12px]">₹2,499</span>
+</div>
+<span class="text-[10px] text-outline uppercase">Size: S</span>
+<div class="flex items-center gap-4 mt-2">
+<div class="flex items-center border border-outline-variant">
+<button class="px-2 py-1 text-primary hover:bg-surface-accent">-</button>
+<span class="px-3 py-1 text-[12px] font-bold text-primary">1</span>
+<button class="px-2 py-1 text-primary hover:bg-surface-accent">+</button>
+</div>
+<button class="text-[10px] text-outline underline uppercase tracking-tighter">Remove</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-surface-accent">
+<div class="flex justify-between items-center mb-6">
+<span class="font-label-lg text-outline uppercase tracking-widest">Subtotal</span>
+<span class="font-price-display text-primary">₹2,499</span>
+</div>
+<button class="w-full bg-primary text-surface font-headline-md text-headline-md py-4 transition-transform active:scale-95 duration-200 uppercase">
+                    CHECKOUT NOW
+                </button>
+</div>
+</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
      FOOTER
 ═══════════════════════════════════════════ -->
 <footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-20 border-t border-surface-container-highest">
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-    <div class="col-span-2 md:col-span-1">
-      <div class="font-headline-lg text-headline-lg text-primary uppercase mb-6">ESCAPE</div>
-      <p class="font-body-md text-ink-muted text-[14px] leading-relaxed max-w-[200px]">Premium streetwear for every drop. Made with ❤️ in Nagpur.</p>
-      <div class="flex flex-wrap gap-2 mt-4">
-        <span style="background:#1A1A1A;color:#8e9192;font-size:11px;padding:5px 9px;border-radius:4px;">UPI</span>
-        <span style="background:#1A1A1A;color:#8e9192;font-size:11px;padding:5px 9px;border-radius:4px;">VISA</span>
-        <span style="background:#1A1A1A;color:#8e9192;font-size:11px;padding:5px 9px;border-radius:4px;">COD</span>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">SHOP</h4>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="collection.html">NEW ARRIVALS</a>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="collection.html">JERSEYS</a>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="product.html">OVERSIZED TEES</a>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">SUPPORT</h4>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">CONTACT US</a>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">TRACK ORDER</a>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">RETURNS</a>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">POLICIES</h4>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">PRIVACY POLICY</a>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">TERMS OF SERVICE</a>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">SHIPPING</a>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">SOCIAL</h4>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="https://wa.me/918261094774" target="_blank">WHATSAPP</a>
-      <a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="https://instagram.com/escape_clothing17" target="_blank">INSTAGRAM</a>
-    </div>
-  </div>
-  <div class="mt-16 text-center px-margin-mobile md:px-margin-desktop border-t border-surface-accent pt-8">
-    <p class="font-label-lg text-ink-muted text-[10px] tracking-[0.4em]">© 2025 ESCAPE CLOTHING. ALL RIGHTS RESERVED.</p>
-  </div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="font-headline-lg text-headline-lg text-primary uppercase mb-8">ESCAPE</div>
+<p class="font-body-md text-ink-muted text-[14px] leading-relaxed max-w-[200px]">CURATING THE SILENT LANGUAGE OF THE STREETS. PREMIUM GARMENTS FOR THOSE WHO MOVE WITH INTENT.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">SHOP</h4>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="collection.html">NEW ARRIVALS</a>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="collection.html">JERSEYS</a>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="product.html">OVERSIZED TEES</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">SUPPORT</h4>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">CONTACT US</a>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">TRACK ORDER</a>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">RETURNS</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">POLICIES</h4>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">PRIVACY POLICY</a>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">TERMS OF SERVICE</a>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="#">SHIPPING</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-lg text-primary uppercase tracking-widest mb-2">SOCIAL</h4>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="https://wa.me/918261094774" target="_blank">WHATSAPP</a>
+<a class="font-label-lg text-ink-muted hover:text-primary transition-colors uppercase" href="https://instagram.com/escape_clothing17" target="_blank">INSTAGRAM</a>
+</div>
+</div>
+<div class="mt-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center border-t border-surface-accent pt-8">
+<p class="font-label-lg text-ink-muted text-[10px] tracking-[0.4em]">© 2025 ESCAPE CLOTHING. ALL RIGHTS RESERVED. MADE WITH ❤️ IN NAGPUR</p>
+</div>
 </footer>
 
 <!-- WhatsApp Float -->
@@ -521,41 +505,40 @@
    style="position:fixed;bottom:24px;right:24px;z-index:100;width:56px;height:56px;border-radius:50%;background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.40);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform 300ms ease,box-shadow 300ms ease;"
    onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 8px 32px rgba(37,211,102,0.6)'"
    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.4)'">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-  </svg>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
 <script>
-    function toggleCart() {
-        document.getElementById('side-nav').classList.toggle('translate-x-full');
-    }
-
-    function updatePrice(val) {
-        document.getElementById('price-display').textContent = '₹' + Number(val).toLocaleString('en-IN');
-    }
-
-    function toggleSize(btn) {
-        const isActive = btn.classList.contains('bg-primary');
-        // Remove active from all
-        btn.closest('.grid').querySelectorAll('button').forEach(b => {
-            b.classList.remove('bg-primary','text-surface','border-primary');
-            b.classList.add('border-outline-variant','text-primary');
-        });
-        if (!isActive) {
-            btn.classList.add('bg-primary','text-surface','border-primary');
-            btn.classList.remove('border-outline-variant','text-primary');
+        function toggleCart() {
+            const sideNav = document.getElementById('side-nav');
+            sideNav.classList.toggle('translate-x-full');
         }
-    }
 
-    // Intersection observer for load-more zone
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Visual only — spinner stays visible
+        function updatePrice(val) {
+            document.getElementById('price-display').textContent = '₹' + Number(val).toLocaleString('en-IN');
+        }
+
+        function toggleSize(btn) {
+            const isActive = btn.classList.contains('bg-primary');
+            btn.closest('.grid').querySelectorAll('button').forEach(b => {
+                b.classList.remove('bg-primary', 'text-surface', 'border-primary');
+                b.classList.add('border-outline-variant', 'text-primary');
+            });
+            if (!isActive) {
+                btn.classList.add('bg-primary', 'text-surface', 'border-primary');
+                btn.classList.remove('border-outline-variant', 'text-primary');
             }
-        });
-    }, { threshold: 0.1 });
-    observer.observe(document.getElementById('load-more-zone'));
-</script>
+        }
+
+        // Simple Intersection Observer for infinite scroll feel
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Logic to load more items would go here
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(document.getElementById('load-more-zone'));
+    </script>
 </body></html>
