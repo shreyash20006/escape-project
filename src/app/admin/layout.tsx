@@ -4,10 +4,40 @@ import Link from "next/link";
 import { LayoutDashboard, ShoppingBag, Users, Settings, Tag, MessageSquare, LogOut } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const supabase = createClient();
+
+  useEffect(() => {
+    const isPhone = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (!isPhone) return;
+
+    let logoutTimer: any = null;
+
+    const handleVisibilityChange = async () => {
+      if (document.visibilityState === 'hidden') {
+        // Start 60s timer to log out when hidden
+        logoutTimer = setTimeout(async () => {
+          await supabase.auth.signOut();
+          window.location.href = "/login";
+        }, 60000);
+      } else {
+        // Clear timer if user returns before 60s
+        if (logoutTimer) {
+          clearTimeout(logoutTimer);
+          logoutTimer = null;
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (logoutTimer) clearTimeout(logoutTimer);
+    };
+  }, [supabase]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
